@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+	    		{% for serial in serials %}
+
+				<a href="{{ serial.slug }}"><h1>{{ serial.title }} </h1>Rate is {{ serial.is_favorite }}</a> 
+
+					{% endfor %}
+
+{% endblock %}

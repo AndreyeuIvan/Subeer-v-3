@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	    		{% for episode in episodes %}
+
+				<a href="{{ episode.url }}"><h1>{{ episode.title }}</h1></a>
+
+					{% endfor %}
+{% endblock %}

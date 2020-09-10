@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+      <h1>{{ serial.title }}</h1>
+	      <p class="lead my-3">{{ serial.description }}</p>
+      	{% for episode in episodes %}	
+          <a href="{{ episode.url }}" class="stretched-link">
+          	<h3 class="mb-0">
+          		<li>{{ episode.title }}</li>
+          		</h3>
+          </a>
+        {% endfor %}
+
+
+{% endblock %}
