@@ -15,11 +15,18 @@
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'new_serials' %}"> New serials</a>
           </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="{% url 'list_opinion' %}"> Opinions</a>
+          <li class="nav-item dropdown">
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'opinion' %}"> Write opinion</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="{% url 'signup'  %}"> Sign up</a>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">Logs</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="#">Login</a>
-              <a class="dropdown-item" href="#">Sign up</a>
+              <a class="dropdown-item" href="{% url 'signup' %}">Sign up</a>
               <a class="dropdown-item" href="#">Log out</a>
             </div>
           </li>
@@ -30,6 +37,3 @@
         </form>
   </div>
 </nav>
-
-
-

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import NameForm
-from .models import Serial, Episode, Like
+from .models import Serial, Episode, Opinion
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from django.http import HttpResponse
@@ -54,16 +54,14 @@ def new_episodes(request):
 
 
 def get_opinion(request):
-	if request.method == 'GET':
-		form = NameForm()
-		return render(request, 'subeer/form.html', {'form': form})
-	elif request.method == 'POST':
-		form = NameForm(request.POST)
-		feedback = form.save()
-		feedback.save()
-		return render(request, 'subeer/form.html', {'form': NameForm()} )
-	else:
-		return HttpResponseNotAllowed()
+	form = NameForm(request.POST)
+	if request.method == 'POST':
+		if form.is_valid():
+			form.save(commit=True)
+			return render(request, 'subeer/episode_new.html')
+		else:
+			form = NameForm()
+	return render(request, 'subeer/form.html', {'form': form})
 
 '''def like(request):
     if request.method == 'GET':
@@ -74,3 +72,7 @@ def get_opinion(request):
         return HttpResponse('success')
     else:
         return HttpResponse("unsuccesful")'''
+
+class OpinionList(ListView):
+	model = Opinion
+	context_object_name = 'opinions'
