@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.timezone import now
-
+from django.utils import timezone
+from django.conf import settings
 
 # Create your models here.
 class Serial(models.Model):
@@ -18,9 +18,13 @@ class Serial(models.Model):
 	description = models.TextField('Description')
 	slug = models.SlugField(max_length=250, blank=True)
 	url = models.URLField(max_length=133)
-	created = models.DateTimeField(default=now())
-	updated = models.DateTimeField(default=now())
+	created = models.DateTimeField(default=timezone.now)
+	updated = models.DateTimeField(default=timezone.now)
 	poster = models.ImageField("Постер", upload_to="static/img/serial", blank=True)
+	users_likes = models.ManyToManyField(settings.AUTH_USER_MODEL,
+										related_name='serials_liked',
+										blank=True)
+	total_likes = models.PositiveIntegerField(db_index=True, default=0)
 	#Season = BigIntegerField(default=1)
 	#rating= write your own
 	#publish =
@@ -31,12 +35,6 @@ class Serial(models.Model):
 		return self.title
 
 
-class Like(models.Model):
-	serial = models.ForeignKey(
-		Serial, on_delete=models.CASCADE,
-	)
-
-
 class Episode(models.Model):
 	'''Store title of episode, url to download, season, authors(regarding studio of translation)'''
 	#poster = models.ImageField("Постер", upload_to="static/img/episode")
@@ -45,8 +43,9 @@ class Episode(models.Model):
 		Serial, verbose_name="Serial_id", on_delete=models.SET_NULL, null=True
 	)
 	url = models.URLField(max_length=133, blank=True)
-	created = models.DateTimeField(default=now())
-	updated = models.DateTimeField(default=now())
+	created = models.DateTimeField(default=timezone.now)
+	updated = models.DateTimeField(default=timezone.now)
+	upload = models.FileField(upload_to='media')
 	#season =
 	#author_of_release =
 

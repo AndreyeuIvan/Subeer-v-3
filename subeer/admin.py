@@ -15,7 +15,6 @@ class EpisodeAdmin(admin.ModelAdmin):
 @admin.register(Serial)
 class SerialAdmin(admin.ModelAdmin):
 	'''open Admin realpython'''
-	list_display = ('title', 'get_img')
 	search_fields = ('title',)
 	prepopulated_fields = {'slug': ('title',)}
 

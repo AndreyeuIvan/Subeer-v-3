@@ -1,1 +1,13 @@
-source ~/virtualenvironment/subeer/bin/activate
+source ~/virtualenvironment/serial_beer/bin/activate
+
+добавить апи
+добавить аутентификации
+добавить красок
+
+Джосер-средство для работы с апи и аутентфикацией
+
+http://ccbv.co.uk/projects/Django/3.0/django.views.generic.list/ListView/- все об встроенных классах в джанго
+
+fastapi для создания апи, быстро
+
+typing для работы с пипом питона

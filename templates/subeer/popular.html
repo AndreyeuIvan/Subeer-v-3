@@ -1,12 +1,53 @@
 {% extends "base.html" %}
-
 {% block content %}
+{% for serial in serials %}
+<a href="{{ serial.slug }}">
+   <h1>{{ serial.title }} </h1>
+</a>
+<p>
+   Rate is {{ serial.is_favorite }}
+</p>
+ {% with total_likes=serial.users.likes.count users_like=serial.users_like.all %}
+<div>
+<span class='count'>
+<span class="total">{{ total_likes }}</span>
+like{{ total_likes|pluralize }}
+</span>
+<a href="#" data-id="{{ serial.id }}" data-action="{% if request.user in users_like %}un{% endif %}like" class="like button">
+{% if request.user not in users_like %}
+like
+{% else %}
+Unlike
+{% endif %}
+</a>
+{% endwith %}
+</div>
+{% endfor %}
+{% endblock %}
 
+{% block domready %}
+  $('a.like').click(function(e){
+    e.preventDefault();
+    $.post('{% url "like" %}',
+      {
+        id: $(this).data('id'),
+        action: $(this).data('action')
+      },
+      function(data){
+        if (data['status'] == 'ok')
+        {
+          var previous_action = $('a.like').data('action');
 
-	    		{% for serial in serials %}
+          // toggle data-action
+          $('a.like').data('action', previous_action == 'like' ? 'unlike' : 'like');
+          // toggle link text
+          $('a.like').text(previous_action == 'like' ? 'Unlike' : 'Like');
 
-				<a href="{{ serial.slug }}"><h1>{{ serial.title }} </h1>Rate is {{ serial.is_favorite }}</a> 
-
-					{% endfor %}
-
+          // update total likes
+          var previous_likes = parseInt($('span.count .total').text());
+          $('span.count .total').text(previous_action == 'like' ? previous_likes + 1 : previous_likes - 1);
+        }
+      }
+    );
+  });
 {% endblock %}
