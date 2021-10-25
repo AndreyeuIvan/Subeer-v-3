@@ -3,8 +3,39 @@
 {% load static %}
 
 {% block content %}
+<style type="text/css">
+	body {
+		margin-top: 35px;
+		background-image: url('{% static "img/serial/mandalorian_ZbnH70e.jpg" %}');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		z-index: 3;
+		opacity: 150%;
+	}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: yellow;
+
+	}
+
+	a {
+		text-decoration: underline;
+		color: #E9967A;
+	}
+
+	.jumbotron {
+		padding: 2rem 1rem;
+		margin-bottom: 2rem;
+		background-color: transparent;
+		border-radius: .3rem;
+		z-index: 2;
+	}
+</style>
 
 
 	{% for serial in serials %}
