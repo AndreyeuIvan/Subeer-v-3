@@ -1,6 +1,6 @@
 source ~/virtualenvironment/serial_beer/bin/activate
 
-добавить апи
+добавить апи +
 добавить аутентификации
 добавить красок
 
