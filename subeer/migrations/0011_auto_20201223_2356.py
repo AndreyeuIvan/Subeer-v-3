@@ -8,34 +8,42 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('subeer', '0010_auto_20201217_0056'),
+        ("subeer", "0010_auto_20201217_0056"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='episode',
-            name='upload',
-            field=models.FileField(default=0, upload_to='media'),
+            model_name="episode",
+            name="upload",
+            field=models.FileField(default=0, upload_to="media"),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='episode',
-            name='created',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 23, 23, 56, 28, 204197, tzinfo=utc)),
+            model_name="episode",
+            name="created",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 23, 23, 56, 28, 204197, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='episode',
-            name='updated',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 23, 23, 56, 28, 204226, tzinfo=utc)),
+            model_name="episode",
+            name="updated",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 23, 23, 56, 28, 204226, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='created',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 23, 23, 56, 28, 203062, tzinfo=utc)),
+            model_name="serial",
+            name="created",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 23, 23, 56, 28, 203062, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='updated',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 23, 23, 56, 28, 203092, tzinfo=utc)),
+            model_name="serial",
+            name="updated",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 23, 23, 56, 28, 203092, tzinfo=utc)
+            ),
         ),
     ]

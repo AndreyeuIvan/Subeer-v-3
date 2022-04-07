@@ -7,28 +7,28 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('subeer', '0014_auto_20210101_1500'),
+        ("subeer", "0014_auto_20210101_1500"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='episode',
-            name='created',
+            model_name="episode",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AlterField(
-            model_name='episode',
-            name='updated',
+            model_name="episode",
+            name="updated",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='created',
+            model_name="serial",
+            name="created",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='updated',
+            model_name="serial",
+            name="updated",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

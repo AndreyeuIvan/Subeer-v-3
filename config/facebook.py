@@ -1,7 +1,7 @@
-SOCIAL_AUTH_FACEBOOK_KEY = '758841578196017' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '61a1cd91a98c23797332d3e8982ca0b8' # Facebook App Secret
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_KEY = "758841578196017"  # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = "61a1cd91a98c23797332d3e8982ca0b8"  # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '932035609218-rgl498j7euvp0ok3p458g61oemfc24jf.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'RUvryLdxs_-vYAViEwBKzIWq' # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "932035609218-rgl498j7euvp0ok3p458g61oemfc24jf.apps.googleusercontent.com"  # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "RUvryLdxs_-vYAViEwBKzIWq"  # Google Consumer Secret

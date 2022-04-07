@@ -8,28 +8,36 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('subeer', '0012_auto_20201229_0031'),
+        ("subeer", "0012_auto_20201229_0031"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='episode',
-            name='created',
-            field=models.DateTimeField(default=datetime.datetime(2021, 1, 1, 14, 42, 49, 624501, tzinfo=utc)),
+            model_name="episode",
+            name="created",
+            field=models.DateTimeField(
+                default=datetime.datetime(2021, 1, 1, 14, 42, 49, 624501, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='episode',
-            name='updated',
-            field=models.DateTimeField(default=datetime.datetime(2021, 1, 1, 14, 42, 49, 624525, tzinfo=utc)),
+            model_name="episode",
+            name="updated",
+            field=models.DateTimeField(
+                default=datetime.datetime(2021, 1, 1, 14, 42, 49, 624525, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='created',
-            field=models.DateTimeField(default=datetime.datetime(2021, 1, 1, 14, 42, 49, 622947, tzinfo=utc)),
+            model_name="serial",
+            name="created",
+            field=models.DateTimeField(
+                default=datetime.datetime(2021, 1, 1, 14, 42, 49, 622947, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='updated',
-            field=models.DateTimeField(default=datetime.datetime(2021, 1, 1, 14, 42, 49, 622974, tzinfo=utc)),
+            model_name="serial",
+            name="updated",
+            field=models.DateTimeField(
+                default=datetime.datetime(2021, 1, 1, 14, 42, 49, 622974, tzinfo=utc)
+            ),
         ),
     ]

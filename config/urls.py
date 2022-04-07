@@ -20,18 +20,14 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('api.urls'), name='api'),
-    path('', include('subeer.urls'), name='subeer'),
-
-    path('account/', include('account.urls'), name='account'),
-    #re_path(r'^users/', include('django.contrib.auth.urls')),
-    re_path(r'^social-auth/', include('social_django.urls', namespace='social')),
-
-
-] 
+    path("admin/", admin.site.urls),
+    path("api/", include("api.urls"), name="api"),
+    path("", include("subeer.urls"), name="subeer"),
+    path("account/", include("account.urls"), name="account"),
+    # re_path(r'^users/', include('django.contrib.auth.urls')),
+    re_path(r"^social-auth/", include("social_django.urls", namespace="social")),
+]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-

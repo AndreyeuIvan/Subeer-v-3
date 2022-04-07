@@ -10,36 +10,46 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('subeer', '0011_auto_20201223_2356'),
+        ("subeer", "0011_auto_20201223_2356"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='serial',
-            name='users_likes',
-            field=models.ManyToManyField(blank=True, related_name='serials_liked', to=settings.AUTH_USER_MODEL),
+            model_name="serial",
+            name="users_likes",
+            field=models.ManyToManyField(
+                blank=True, related_name="serials_liked", to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AlterField(
-            model_name='episode',
-            name='created',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 29, 0, 31, 35, 175886, tzinfo=utc)),
+            model_name="episode",
+            name="created",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 29, 0, 31, 35, 175886, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='episode',
-            name='updated',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 29, 0, 31, 35, 175911, tzinfo=utc)),
+            model_name="episode",
+            name="updated",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 29, 0, 31, 35, 175911, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='created',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 29, 0, 31, 35, 174314, tzinfo=utc)),
+            model_name="serial",
+            name="created",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 29, 0, 31, 35, 174314, tzinfo=utc)
+            ),
         ),
         migrations.AlterField(
-            model_name='serial',
-            name='updated',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 29, 0, 31, 35, 174346, tzinfo=utc)),
+            model_name="serial",
+            name="updated",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 29, 0, 31, 35, 174346, tzinfo=utc)
+            ),
         ),
         migrations.DeleteModel(
-            name='Like',
+            name="Like",
         ),
     ]
