@@ -30,7 +30,7 @@ SECRET_KEY = "t+a-cmm2llltqa0$3)nm#7mt@i-_0_9jcn50ygdofm1kfxv(u5"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["mysite.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 # registration by Facebook and other social networkss
 AUTHENTICATION_BACKENDS = [
@@ -91,14 +91,24 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+'''
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
+'''
 
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'HOST': os.environ.get('DB_HOST'),
+    'NAME': os.environ.get('DB_NAME'),
+    'USER': os.environ.get('DB_USER'),
+    'PASSWORD': os.environ.get('DB_PASS'),
+  }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -144,18 +154,18 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 LOGOUT_REDIRECT_URL = "login"
-LOGIN_REDIRECT_URL = "login"
-LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "popular"#отвечает за редирект
+LOGIN_URL = "popular"
 LOGOUT_URL = "logout"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-SOCIAL_AUTH_FACEBOOK_KEY = Key  # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = Secret  # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')  # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')  # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = g_key  # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = g_sec  # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')  # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')  # Google Consumer Secret
 
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [

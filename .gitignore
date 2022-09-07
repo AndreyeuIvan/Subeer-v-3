@@ -164,6 +164,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# facebook 1
+# Facebook
 facebook.py
-.facebook.py
+.pem
+linker.pem
