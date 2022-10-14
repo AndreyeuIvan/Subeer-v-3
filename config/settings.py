@@ -9,12 +9,6 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and thseir values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-from .facebook import (
-    SOCIAL_AUTH_FACEBOOK_SECRET as Secret,
-    SOCIAL_AUTH_FACEBOOK_KEY as Key,
-    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY as g_key,
-    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET as g_sec,
-)
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -30,7 +24,7 @@ SECRET_KEY = "t+a-cmm2llltqa0$3)nm#7mt@i-_0_9jcn50ygdofm1kfxv(u5"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["0.0.0.0", '127.0.0.1']
 
 # registration by Facebook and other social networkss
 AUTHENTICATION_BACKENDS = [
